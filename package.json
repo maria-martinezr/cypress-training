@@ -1,0 +1,25 @@
+{
+  "name": "cypress-training",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maria-martinezr/cypress-training.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "cypress"
+  ],
+  "author": "Maria Isabel Martinez <mimr0694@gmail.com> (maria-martinezr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maria-martinezr/cypress-training/issues"
+  },
+  "homepage": "https://github.com/maria-martinezr/cypress-training#readme"
+}
