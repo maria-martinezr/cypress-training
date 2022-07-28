@@ -1,29 +1,46 @@
+import {
+  AddressStepPage,
+  LoginPage,
+  MenuContentPage,
+  PaymentStepPage,
+  ProductsListPage,
+  ShippingStepPage,
+  ShoppingCartPage,
+} from "../page/index";
+
+const menuContentPage = new MenuContentPage();
+const productsListPage = new ProductsListPage();
+const shoppingCartPage = new ShoppingCartPage();
+const loginPage = new LoginPage();
+const addressStepPage = new AddressStepPage();
+const shippingStepPage = new ShippingStepPage();
+const paymentStepPage = new PaymentStepPage();
+
+
 describe("Buy a t-shirt", () => {
   it("then the t-shirt should be bought", () => {
-    cy.visit("http://automationpractice.com/");
-    cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-    cy.get(
-        "#center_column a.button.ajax_add_to_cart_button.btn.btn-default",
-    ).click();
-    cy.get("[style*='display: block;'] .button-container > a").click();
-    cy.get(".cart_navigation span").click();
+    menuContentPage.visitMenuContentPage();
+    menuContentPage.goToTShirtMenu();
 
-    cy.get("#email").type("aperdomobo@gmail.com");
-    cy.get("#passwd").type("WorkshopProtractor");
-    cy.get("#SubmitLogin").click();
+    productsListPage.addTShirtToCart();
+    productsListPage.proceedToCheckout();
 
-    cy.get(".cart_navigation > .button > span").click();
+    shoppingCartPage.proceedToCheckout();
 
-    cy.get("#cgv").click();
-    cy.get(".cart_navigation > .button > span").click();
+    loginPage.signIn("aperdomobo@gmail.com", "WorkshopProtractor");
 
-    cy.get(".bankwire").click();
+    addressStepPage.proceedToCheckout();
 
-    cy.get("#cart_navigation > button").click();
+    shippingStepPage.selectTermsOfService();
+    shippingStepPage.proceedToCheckout();
 
-    cy.get("#center_column > div > p > strong").should(
-        "have.text",
-        "Your order on My Store is complete.",
-    );
+    paymentStepPage.clickPayByBankWire();
+    paymentStepPage.confirmMyOrder();
+
+    paymentStepPage.getSuccessfulMessage()
+        .should(
+            "have.text",
+            "Your order on My Store is complete.",
+        );
   });
 });
