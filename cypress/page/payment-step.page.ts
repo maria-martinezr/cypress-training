@@ -6,7 +6,7 @@ class PaymentStepPage {
     constructor () {
         this.payByBankWireOption = ".bankwire";
         this.confirmButton = "#cart_navigation > button";
-        this.successfulMessage = "#center_column > div > p > strong";
+        this.successfulMessage = " .box .cheque-indent > strong.dark";
     }
 
     public clickPayByBankWire(): void {
