@@ -8,32 +8,38 @@ import {
   ShoppingCartPage,
 } from "../page/index";
 
-const menuContentPage = new MenuContentPage();
-const productsListPage = new ProductsListPage();
-const shoppingCartPage = new ShoppingCartPage();
-const loginPage = new LoginPage();
-const addressStepPage = new AddressStepPage();
-const shippingStepPage = new ShippingStepPage();
-const paymentStepPage = new PaymentStepPage();
-
-
 describe("Buy a t-shirt", () => {
+  let menuContentPage: MenuContentPage;
+  let productsListPage: ProductsListPage;
+  let shoppingCartPage: ShoppingCartPage;
+  let loginPage: LoginPage;
+  let addressStepPage: AddressStepPage;
+  let shippingStepPage: ShippingStepPage;
+  let paymentStepPage: PaymentStepPage;
+
+  before(() => {
+    menuContentPage = new MenuContentPage();
+    productsListPage = new ProductsListPage();
+    shoppingCartPage = new ShoppingCartPage();
+    loginPage = new LoginPage();
+    addressStepPage = new AddressStepPage();
+    shippingStepPage = new ShippingStepPage();
+    paymentStepPage = new PaymentStepPage();
+  });
+
   it("then the t-shirt should be bought", () => {
+    const email: string = "aperdomobo@gmail.com";
+    const password: string = "WorkshopProtractor";
     menuContentPage.visitMenuContentPage();
     menuContentPage.goToTShirtMenu();
 
     productsListPage.addTShirtToCart();
     productsListPage.proceedToCheckout();
-
     shoppingCartPage.proceedToCheckout();
-
-    loginPage.signIn("aperdomobo@gmail.com", "WorkshopProtractor");
-
+    loginPage.signIn(email, password);
     addressStepPage.proceedToCheckout();
-
     shippingStepPage.selectTermsOfService();
     shippingStepPage.proceedToCheckout();
-
     paymentStepPage.clickPayByBankWire();
     paymentStepPage.confirmMyOrder();
 
