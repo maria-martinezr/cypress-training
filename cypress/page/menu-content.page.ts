@@ -1,4 +1,3 @@
-
 class MenuContentPage {
     private tShirtMenu: string;
     private dressesMenu: string;
