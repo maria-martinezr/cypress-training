@@ -8,3 +8,5 @@ export { PaymentStepPage } from "./payment-step.page";
 export { DressesListPage } from "./dresses-list.page";
 export { StudentRegistrationPage } from "./student-registration.page";
 export { UploadFilePage } from "./upload.page";
+export { DownloadPage } from "./download.page";
+export { StudentInformation } from "../utils/student-information"

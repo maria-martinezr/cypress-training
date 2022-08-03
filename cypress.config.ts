@@ -1,4 +1,6 @@
 import { defineConfig } from "cypress";
+const { isFileExist, findFiles } = require('cy-verify-downloads');
+
 
 export default defineConfig({
   // setupNodeEvents can be defined in either
@@ -18,6 +20,7 @@ export default defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     setupNodeEvents(on, config) {
+      on('task', { isFileExist, findFiles });
        config.defaultCommandTimeout = 20000;
        config.responseTimeout = 20000;
 
