@@ -1,5 +1,5 @@
 import * as dayjs from 'dayjs'
-import { StudentInformation } from "../utils/studet-information"
+import { StudentInformation } from "./index"
 
 class StudentRegistrationPage {
     private studentRegistrationPageURL: string;
