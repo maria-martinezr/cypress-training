@@ -1,5 +1,4 @@
-import {StudentRegistrationPage} from "../page/index";
-import {StudentInformation} from "../utils/studet-information";
+import {StudentRegistrationPage, StudentInformation} from "../page/index";
 
 describe("the user navigates to the registration student form page should", () => {
   let studentRegistrationPage: StudentRegistrationPage;
