@@ -25,6 +25,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 // Ignoring uncaught exceptions since errors from external apps should not stop the workshop
 import 'cypress-file-upload';
+import 'cypress-iframe';
+
 require('cy-verify-downloads').addCustomCommand();
 
 

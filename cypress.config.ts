@@ -6,6 +6,8 @@ export default defineConfig({
   // setupNodeEvents can be defined in either
   // the e2e or component configuration
   e2e: {
+    chromeWebSecurity: false,
+    pageLoadTimeout: 30000,
     reporter: "cypress-multi-reporters",
     reporterOptions: {
       reporterEnabled: "mochawesome",
